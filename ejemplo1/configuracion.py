@@ -12,7 +12,7 @@ engine = create_engine('sqlite:///demobase.db', echo=True)
 
 # postgres
 # sudo apt install libpq-dev
-# pip install psycopg2
+# pip install psycopg2       en el entorno
 # engine = create_engine("postgresql+psycopg2://user:pass@localhost:5432/demo100", echo=True)
 
 

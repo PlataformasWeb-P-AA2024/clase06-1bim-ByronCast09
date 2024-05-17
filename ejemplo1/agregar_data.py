@@ -1,15 +1,15 @@
 from sqlalchemy.orm import sessionmaker
 
-from crear_base import Saludo
+from crear_base import Saludo #importante
 from configuracion import engine
 
 Session = sessionmaker(bind=engine)
-session = Session()
+session = Session() # parecido al cursor que me ayuda crear, y guardar ademas de consultas
 
 # se crea un objeto de tipo
 # Saludo
 
-miSaludo = Saludo()
+miSaludo = Saludo()# viene de crear_base.py, Saludo es la clase que creé
 miSaludo.mensaje = "Hola que tal"
 miSaludo.tipo = "informal"
 

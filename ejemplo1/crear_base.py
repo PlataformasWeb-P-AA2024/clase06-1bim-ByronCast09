@@ -9,13 +9,13 @@ from configuracion import engine
 
 
 from sqlalchemy.ext.declarative import declarative_base
-Base = declarative_base()
+Base = declarative_base() #superclase q los vincula con sqlalchemy
 
 
 from sqlalchemy import Column, Integer, String
 
-class Saludo(Base):
-    __tablename__ = 'saludos'
+class Saludo(Base): # clase saludo que hereda de la clase BASe, siemore heredan de BASE
+    __tablename__ = 'saludos' #nombre de la base
 
     id = Column(Integer, primary_key=True)
     mensaje = Column(String(200))
@@ -30,5 +30,5 @@ class Saludo2(Base):
     tipo = Column(String(200))
     origen = Column(String(200))
 """
-
+# toma las clases y trata de ponerla en el gestor de base de datos
 Base.metadata.create_all(engine)
