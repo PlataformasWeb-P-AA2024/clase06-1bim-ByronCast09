@@ -8,13 +8,13 @@ from crear_base import Docente
 
 from configuracion import engine
 
-Session = sessionmaker(bind=engine)
+Session = sessionmaker(bind=engine) #conectada  ala coneccion
 session = Session()
 
 # Obtener todos los registros de
 # la entidad docentes
-docentes = session.query(Docente).all() # [docente1, docente2, docente3]
-
+docentes = session.query(Docente).all() # [docente1, docente2, docente3] saca una lista de objetos que se crearon
+# select * es parecido
 # Se recorre la lista a través de un ciclo
 # repetitivo for en python
 print("Presentación de todos los Docentes")
@@ -22,11 +22,7 @@ for s in docentes:
     print("%s" % (s))
     print("---------")
 
-# Obtener todos los registros de
-# la tabla docentes que tengan como valor en
-# el atributo especifico
-docentes_dos = session.query(Docente).filter(Docente.ciudad=="Loja").all()
-print(docentes_dos)
+
 
 print("--------------------------------")
 
@@ -44,7 +40,7 @@ print("--------------------------------")
 docentes = session.query(Docente).filter(Docente.ciudad!=None).order_by(Docente.nombre).all()
 print(docentes)
 
-print("--------------------------------")
+print("--------------------------------")               #es un Y osea deben cumplirse 2 condiciones
 docentes = session.query(Docente).filter(Docente.ciudad=="Loja", Docente.nombre!=None).order_by(Docente.nombre).all()
 print(docentes)
 
@@ -61,7 +57,7 @@ docentes = session.query(Docente).filter(and_(Docente.ciudad.like("%oja%"), Doce
 print(docentes)
 
 print("--------------------------------")
-# Uso de in_
+# Uso de in_              #IMPORTANTE EL AND Y IN
 
 docentes = session.query(Docente).filter(Docente.apellido.in_(['Minga', 'Borrero'])).order_by(Docente.nombre).all()
 

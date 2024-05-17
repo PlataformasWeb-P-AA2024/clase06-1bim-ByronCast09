@@ -15,7 +15,7 @@ Base = declarative_base()
 
 from sqlalchemy import Column, Integer, String
 
-class Docente(Base):
+class Docente(Base): #superclase
 
     __tablename__ = 'docentes'
 
@@ -24,7 +24,7 @@ class Docente(Base):
     apellido = Column(String(200))
     ciudad = Column(String(200), nullable=False) # este atributo no puede ser nulo
 
-
+    # es como un toString
     def __repr__(self):
         return "Docente: nombre=%s apellido=%s ciudad:%s" % (
                           self.nombre,
